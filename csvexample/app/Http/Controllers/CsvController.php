@@ -15,19 +15,16 @@ class CsvController extends Controller
         $products = Product::all();
         return view('index', compact('products'));
     }
+
     public function import(Request $request)
     {
         $request->validate([
-            'document_csv' => 'required|mimes:csv|max:2048',
+            'document_csv' => 'required|mimes:csv,txt'
         ]);
 
-        try {
-            $file = $request->file('document_csv');
-            Excel::import(new ProductImport, $file);
-            return redirect()->route('index');
-        } catch (\Exception $e) {
-            dd("Error: " . $e->getMessage());
-        }
+        Excel::import(new ProductImport, $request->file('document_csv'));
+
+        return back()->with('success', 'Products imported successfully.');
     }
     public function export()
     {

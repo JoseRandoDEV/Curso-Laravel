@@ -43,14 +43,14 @@ return [
         |
         */
         'csv'                    => [
-            'delimiter'              => ',',
+            'delimiter'              => ';',
             'enclosure'              => '"',
             'line_ending'            => PHP_EOL,
             'use_bom'                => false,
             'include_separator_line' => false,
             'excel_compatibility'    => false,
             'output_encoding'        => '',
-            'test_auto_detect'       => true,
+            'test_auto_detect'       => false,
         ],
 
         /*
@@ -124,7 +124,7 @@ return [
         |
         */
         'csv'          => [
-            'delimiter'        => ',',
+            'delimiter'        => ';',
             'enclosure'        => '"',
             'escape_character' => '\\',
             'contiguous'       => false,
